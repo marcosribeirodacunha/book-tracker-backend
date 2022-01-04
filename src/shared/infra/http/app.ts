@@ -24,9 +24,10 @@ class App {
   }
 
   private database(): void {
-    createConnection().then(() =>
-      console.log("Database connected successfully")
-    );
+    createConnection().then(() => {
+      if (process.env.NODE_ENV !== "test")
+        console.log("Database connected successfully");
+    });
   }
 
   private middlewares(): void {

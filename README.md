@@ -9,7 +9,7 @@
   - [ ] It must be able to show user info
 
 ### Session
-  - [ ] It must be able to authenticate an user
+  - [x] It must be able to authenticate an user
 
 ### Books
   - [ ] It must be able to create a new book
