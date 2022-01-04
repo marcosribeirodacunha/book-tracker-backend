@@ -6,7 +6,7 @@
 
 ### User
   - [x] It must be able create a new user
-  - [ ] It must be able to show user info
+  - [x] It must be able to show user info
 
 ### Session
   - [x] It must be able to authenticate an user
@@ -25,7 +25,7 @@
 ### User
   - [x] It must not be able to create a user with an existing email
   - [x] It must hash user password before save on database
-  - [ ] It must be authenticated to show user info
+  - [x] It must be authenticated to show user info
 
 ### Book
   - [ ] It must be able to filter the books by status
