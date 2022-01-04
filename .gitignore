@@ -1,0 +1,16 @@
+node_modules/
+dist
+*.sqlite
+
+.env
+.env.test
+.env.production
+
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+lib-cov
+coverage
+*.lcov
+
