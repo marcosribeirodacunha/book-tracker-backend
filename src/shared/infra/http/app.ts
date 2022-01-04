@@ -1,9 +1,13 @@
 import "reflect-metadata";
 import "express-async-errors";
 import cors from "cors";
-import express from "express";
+import express, { Response } from "express";
 import helmet from "helmet";
 import { createConnection } from "typeorm";
+
+import "@shared/container";
+
+import { AppError } from "@shared/errors/AppError";
 
 import { routes } from "./routes";
 
@@ -16,15 +20,16 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
+    this.errors();
   }
 
-  private database() {
+  private database(): void {
     createConnection().then(() =>
       console.log("Database connected successfully")
     );
   }
 
-  private middlewares() {
+  private middlewares(): void {
     this.express.use(cors());
     this.express.use(helmet());
     this.express.use(express.json());
@@ -32,6 +37,17 @@ class App {
 
   private routes() {
     this.express.use(routes);
+  }
+
+  private errors(): void {
+    this.express.use((error, req, res: Response, next) => {
+      if (error instanceof AppError)
+        return res.status(error.statusCode).json({ message: error.message });
+
+      return res
+        .status(500)
+        .json({ message: `Internal Server Error - ${error.message}` });
+    });
   }
 }
 
