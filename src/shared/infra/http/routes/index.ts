@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+import { booksRoutes } from "./books.routes";
 import { sessionRoutes } from "./session.routes";
 import { userRoutes } from "./user.routes";
 
@@ -10,6 +11,7 @@ routes.get("/", (req, res) =>
 );
 
 routes.use("/users", userRoutes);
+routes.use("/books", booksRoutes);
 routes.use("/session", sessionRoutes);
 
 export { routes };

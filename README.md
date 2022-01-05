@@ -12,7 +12,7 @@
   - [x] It must be able to authenticate an user
 
 ### Books
-  - [ ] It must be able to create a new book
+  - [x] It must be able to create a new book
   - [ ] It must be able to update book info
   - [ ] It must be able to delete a book
   - [ ] It must be able to list all books
@@ -28,5 +28,6 @@
   - [x] It must be authenticated to show user info
 
 ### Book
+  - [x] It must be able create a book with status "want_to_read" by default
   - [ ] It must be able to filter the books by status
   - [ ] It must be able to rate only read books
