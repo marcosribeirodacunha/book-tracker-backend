@@ -13,13 +13,29 @@ export class BooksRepository implements IBooksRepository {
   }
 
   async create({
+    id,
     title,
     author,
     status,
     userId,
+    finishedAt,
+    rate,
   }: ICreateBookDTO): Promise<Book> {
-    const book = this.repository.create({ title, author, status, userId });
+    const book = this.repository.create({
+      id,
+      title,
+      author,
+      status,
+      userId,
+      finishedAt,
+      rate,
+    });
     await this.repository.save(book);
+    return book;
+  }
+
+  async findById(id: string): Promise<Book> {
+    const book = await this.repository.findOne(id);
     return book;
   }
 }
