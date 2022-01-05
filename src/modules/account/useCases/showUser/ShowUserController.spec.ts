@@ -6,7 +6,7 @@ import { app } from "@shared/infra/http/app";
 
 let connection: Connection;
 
-describe("#ShowUserUseCase", () => {
+describe("#ShowUserController", () => {
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
