@@ -29,6 +29,8 @@
 
 <p><img src=".github/diagram.png" alt="Database diagram" width=100%></p>
 
+You can also see the application requirements [here](app-requirements.md).
+
 ## Routes
 
 | Endpoint          | Method   | Auth | Descrição                                                                   |
