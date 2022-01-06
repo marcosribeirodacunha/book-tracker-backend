@@ -26,10 +26,10 @@ export class AuthenticateUserUseCase {
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
-    if (!user) throw new AppError("Invalid email or password", 401);
+    if (!user) throw new AppError("Invalid email or password");
 
     const passwordMatch = await compare(password, user.password);
-    if (!passwordMatch) throw new AppError("Invalid email or password", 401);
+    if (!passwordMatch) throw new AppError("Invalid email or password");
 
     const token = sign({}, process.env.JWT_SECRET, {
       subject: user.id,

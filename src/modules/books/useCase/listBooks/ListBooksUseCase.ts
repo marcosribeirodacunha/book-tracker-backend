@@ -19,7 +19,7 @@ export class ListBooksUseCase {
 
   async execute({ userId, status }: IRequest): Promise<Book[]> {
     if (status && !this.isValidStatus(status))
-      throw new AppError("Invalid status", 404);
+      throw new AppError("Invalid status");
 
     const books = await this.booksRepository.findByUserId(userId, status);
     return books;
