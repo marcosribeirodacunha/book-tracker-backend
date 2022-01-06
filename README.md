@@ -13,7 +13,7 @@
 
 ### Books
   - [x] It must be able to create a new book
-  - [ ] It must be able to update book info
+  - [x] It must be able to update book info
   - [ ] It must be able to delete a book
   - [x] It must be able to list all books
   - [x] It must be able to update book status
