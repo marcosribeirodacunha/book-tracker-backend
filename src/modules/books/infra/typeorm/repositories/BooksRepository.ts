@@ -46,7 +46,7 @@ export class BooksRepository implements IBooksRepository {
 
     if (status) booksQuery.andWhere("status = :status", { status });
 
-    const books = await booksQuery.getMany();
+    const books = await booksQuery.orderBy("created_at", "DESC").getMany();
     return books;
   }
 }
