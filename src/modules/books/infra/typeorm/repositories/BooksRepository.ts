@@ -47,6 +47,10 @@ export class BooksRepository implements IBooksRepository {
     if (status) booksQuery.andWhere("status = :status", { status });
 
     const books = await booksQuery.orderBy("created_at", "DESC").getMany();
-    return books;
+    const serializedBooks = books.map(({ rate, ...rest }) => ({
+      ...rest,
+      rate: rate ? Number(rate) : null,
+    }));
+    return serializedBooks;
   }
 }
