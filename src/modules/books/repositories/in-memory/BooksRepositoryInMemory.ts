@@ -50,4 +50,8 @@ export class BooksRepositoryInMemory implements IBooksRepository {
     if (status) books = books.filter((book) => book.status === status);
     return books;
   }
+
+  async deleteById(id: string): Promise<void> {
+    this.books = this.books.filter((book) => book.id !== id);
+  }
 }
