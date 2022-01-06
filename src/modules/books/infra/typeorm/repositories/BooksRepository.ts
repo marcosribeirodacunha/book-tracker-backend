@@ -38,4 +38,15 @@ export class BooksRepository implements IBooksRepository {
     const book = await this.repository.findOne(id);
     return book;
   }
+
+  async findByUserId(userId: string, status?: string): Promise<Book[]> {
+    const booksQuery = this.repository
+      .createQueryBuilder("books")
+      .where("user_id = :userId", { userId });
+
+    if (status) booksQuery.andWhere("status = :status", { status });
+
+    const books = await booksQuery.getMany();
+    return books;
+  }
 }

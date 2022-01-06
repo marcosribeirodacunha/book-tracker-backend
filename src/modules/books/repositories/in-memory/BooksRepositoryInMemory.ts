@@ -44,4 +44,10 @@ export class BooksRepositoryInMemory implements IBooksRepository {
   async findById(id: string): Promise<Book> {
     return this.books.find((book) => book.id === id);
   }
+
+  async findByUserId(userId: string, status?: string): Promise<Book[]> {
+    let books = this.books.filter((book) => book.userId === userId);
+    if (status) books = books.filter((book) => book.status === status);
+    return books;
+  }
 }
