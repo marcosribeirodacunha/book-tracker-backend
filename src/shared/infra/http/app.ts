@@ -1,12 +1,12 @@
 import "reflect-metadata";
 import "express-async-errors";
+import "dotenv/config";
 import cors from "cors";
 import express, { Response } from "express";
 import helmet from "helmet";
 import { createConnection } from "typeorm";
 
 import "@shared/container";
-
 import { AppError } from "@shared/errors/AppError";
 
 import { routes } from "./routes";
